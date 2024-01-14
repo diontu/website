@@ -7,7 +7,8 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '@/components/template-components/ui/accordion'
+} from '@/components/ui/accordion'
+import Navigation from './components/navigation-menu/navigation-menu'
 
 function App() {
     const [count, setCount] = useState(0)
@@ -48,6 +49,32 @@ function App() {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
+            <Navigation
+                nav={[
+                    { title: 'one', href: 'hello' },
+                    { title: 'one', href: 'hello' },
+                    {
+                        title: 'two',
+                        menu: [
+                            {
+                                title: 'title',
+                                href: 'something',
+                                description: 'something description',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'two',
+                        menu: [
+                            {
+                                title: 'title',
+                                href: 'something',
+                                description: 'something description',
+                            },
+                        ],
+                    },
+                ]}
+            />
 
             <h1>Vite + React</h1>
             <div className="card">
