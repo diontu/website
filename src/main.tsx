@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import routerPaths from 'router/router'
-import './index.css'
+import '@/styles/globals.css'
 
 const router = createBrowserRouter(routerPaths)
 
