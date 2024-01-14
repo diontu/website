@@ -70,7 +70,7 @@ const ListItem = React.forwardRef<
 })
 ListItem.displayName = 'ListItem'
 
-const Navigation = (props: NavProps) => {
+const Navigation = (props: NavProps): JSX.Element => {
     return (
         <NavigationMenu>
             <NavigationMenuList>

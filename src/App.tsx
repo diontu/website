@@ -9,6 +9,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import Navigation from './components/navigation-menu/navigation-menu'
+import Footer from '@/components/footer/footer'
 
 function App() {
     const [count, setCount] = useState(0)
@@ -75,6 +76,7 @@ function App() {
                     },
                 ]}
             />
+            <Footer />
 
             <h1>Vite + React</h1>
             <div className="card">
