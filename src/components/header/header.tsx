@@ -3,8 +3,8 @@ import Navigation from '@/components/header/navigation-menu/navigation-menu'
 import reactLogo from '@/assets/react.svg'
 
 const nav = [
-    { title: 'About', href: 'hello' },
-    { title: 'Projects', href: 'hello' },
+    { title: 'About', href: '#about' },
+    { title: 'Projects', href: '#projects' },
     // TODO: make the recipes dynamic
     {
         title: 'Recipes',
@@ -16,6 +16,7 @@ const nav = [
                     'A delicious golden yellow crepe with a hint of Matcha!',
             },
         ],
+        // TODO: add another field that creates a "more recipes..." at the bottom that you could click
     },
 ]
 

@@ -1,9 +1,14 @@
-import App from '../App.tsx'
+import Home from 'pages/home/home'
+import Recipes from 'pages/recipes/recipes'
 
 const routerPaths = [
     {
         path: '',
-        element: <App />,
+        element: <Home />,
+    },
+    {
+        path: '/recipes',
+        element: <Recipes />,
     },
 ]
 
