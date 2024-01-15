@@ -8,14 +8,15 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion'
-import Navigation from './components/navigation-menu/navigation-menu'
 import Footer from '@/components/footer/footer'
+import Header from '@/components/header/header'
 
 function App() {
     const [count, setCount] = useState(0)
 
     return (
         <>
+            <Header />
             <div>
                 <a href="https://vitejs.dev" target="_blank">
                     <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -50,32 +51,6 @@ function App() {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-            <Navigation
-                nav={[
-                    { title: 'one', href: 'hello' },
-                    { title: 'one', href: 'hello' },
-                    {
-                        title: 'two',
-                        menu: [
-                            {
-                                title: 'title',
-                                href: 'something',
-                                description: 'something description',
-                            },
-                        ],
-                    },
-                    {
-                        title: 'two',
-                        menu: [
-                            {
-                                title: 'title',
-                                href: 'something',
-                                description: 'something description',
-                            },
-                        ],
-                    },
-                ]}
-            />
             <Footer />
 
             <h1>Vite + React</h1>
