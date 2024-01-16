@@ -45,6 +45,13 @@ const Home = (): JSX.Element => {
                     </p>
                 </div>
             </CardSection>
+            <CardSection id="experience" title="Experience">
+                <div className="text-left">
+                    <p className="mb-4">My experience at AA</p>
+                    <p className="mb-4">My experience at ScotiaBank</p>
+                    <p>My experience at TD</p>
+                </div>
+            </CardSection>
             <CardSection
                 id="projects"
                 title="Projects"
