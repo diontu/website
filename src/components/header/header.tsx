@@ -4,6 +4,7 @@ import reactLogo from '@/assets/react.svg'
 
 const nav = [
     { title: 'About', href: '#about' },
+    { title: 'Experience', href: '#experience' },
     { title: 'Projects', href: '#projects' },
     // TODO: make the recipes dynamic
     {
