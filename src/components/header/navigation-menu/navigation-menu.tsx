@@ -27,7 +27,10 @@ type NavSingle = NavStaple & {
 
 type NavMulti = NavStaple & {
     href?: never
+    main: Flatten<NavMenuContent>
     menu: NavMenuContent
+    // adds a "more" menu and directs to the href
+    moreHref?: string
 }
 
 export type NavMenuContent = {
@@ -91,7 +94,25 @@ const Navigation = (props: NavProps): JSX.Element => {
                                 {item.title}
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
-                                <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] ">
+                                <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] ">
+                                    {item.main && (
+                                        <li className="row-span-3">
+                                            <NavigationMenuLink asChild>
+                                                <a
+                                                    className="flex h-full w-full select-none flex-col justify-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                                    href={item.main.href}
+                                                >
+                                                    {/* <Icons.logo className="h-6 w-6" /> */}
+                                                    <div className="mb-2 mt-4 text-lg font-medium">
+                                                        {item.main.title}
+                                                    </div>
+                                                    <p className="text-sm leading-tight text-muted-foreground">
+                                                        {item.main.description}
+                                                    </p>
+                                                </a>
+                                            </NavigationMenuLink>
+                                        </li>
+                                    )}
                                     {item.menu.map((component) => (
                                         <ListItem
                                             key={component.title}

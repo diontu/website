@@ -1,17 +1,31 @@
 import { useNavigate } from 'react-router-dom'
-import Navigation from '@/components/header/navigation-menu/navigation-menu'
+import Navigation, {
+    NavMenu,
+} from '@/components/header/navigation-menu/navigation-menu'
 import reactLogo from '@/assets/react.svg'
 
-const nav = [
+const nav: NavMenu = [
     { title: 'About', href: '#about' },
     { title: 'Experience', href: '#experience' },
     { title: 'Projects', href: '#projects' },
     // TODO: make the recipes dynamic
     {
         title: 'Recipes',
+        main: {
+            title: 'Recipes Blog',
+            description:
+                "See a catalog of the recipes of the foods I've cooked",
+            href: '/recipes',
+        },
         menu: [
             {
                 title: 'Recipe 1',
+                href: 'something',
+                description:
+                    'A delicious golden yellow crepe with a hint of Matcha!',
+            },
+            {
+                title: 'Recipe 2',
                 href: 'something',
                 description:
                     'A delicious golden yellow crepe with a hint of Matcha!',
