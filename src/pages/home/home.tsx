@@ -64,16 +64,18 @@ const Home = (): JSX.Element => {
                             <div className="mb-6 lg:mb-0">
                                 <div className="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                                     <div className="flex">
-                                        <div
-                                            className="relative mx-4 -mt-4 w-full overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
-                                            data-te-ripple-init
-                                            data-te-ripple-color="light"
-                                        >
-                                            <img
-                                                src="/website.png"
-                                                className="w-full h-[300px] object-cover"
-                                            />
-                                        </div>
+                                        <a href="/">
+                                            <div
+                                                className="relative mx-4 -mt-4 w-full overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+                                                data-te-ripple-init
+                                                data-te-ripple-color="light"
+                                            >
+                                                <img
+                                                    src="/website.png"
+                                                    className="w-full h-[300px] object-cover transition duration-500 ease-in-out hover:scale-105 hover:brightness-90"
+                                                />
+                                            </div>
+                                        </a>
                                     </div>
                                     <div className="p-6">
                                         <h5 className="mb-4 text-lg font-bold">
@@ -95,16 +97,21 @@ const Home = (): JSX.Element => {
                             <div className="mb-0">
                                 <div className="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                                     <div className="flex">
-                                        <div
-                                            className="relative mx-4 -mt-4 w-full overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
-                                            data-te-ripple-init
-                                            data-te-ripple-color="light"
+                                        <a
+                                            target="_blank"
+                                            href="https://www.youtube.com/@notasoftwareengineer"
                                         >
-                                            <img
-                                                src="/youtube_channel.png"
-                                                className="w-full h-[300px] object-cover"
-                                            />
-                                        </div>
+                                            <div
+                                                className="relative mx-4 -mt-4 w-full overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+                                                data-te-ripple-init
+                                                data-te-ripple-color="light"
+                                            >
+                                                <img
+                                                    src="/youtube_channel.png"
+                                                    className="w-full h-[300px] object-cover transition duration-500 ease-in-out hover:scale-105 hover:brightness-90"
+                                                />
+                                            </div>
+                                        </a>
                                     </div>
                                     <div className="p-6">
                                         <h5 className="mb-4 text-lg font-bold">
