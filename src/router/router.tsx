@@ -1,6 +1,7 @@
 import Error404 from '@/pages/404/Error404'
 import Home from '@/pages/home/home'
 import Recipes from '@/pages/recipes/recipes'
+import Recipe from '@/pages/recipes/recipe/recipe'
 import { Navigate } from 'react-router-dom'
 
 const routerPaths = [
@@ -19,6 +20,10 @@ const routerPaths = [
     {
         path: '/recipes',
         element: <Recipes />,
+    },
+    {
+        path: '/recipes/:id',
+        element: <Recipe />,
     },
 ]
 

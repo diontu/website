@@ -23,13 +23,13 @@ const nav: NavMenu = [
         menu: [
             {
                 title: 'Recipe 1',
-                href: 'something',
+                href: '/recipes/recipe-1',
                 description:
                     'A delicious golden yellow crepe with a hint of Matcha!',
             },
             {
                 title: 'Recipe 2',
-                href: 'something',
+                href: '/recipes/recipe-2',
                 description:
                     'A delicious golden yellow crepe with a hint of Matcha!',
             },
