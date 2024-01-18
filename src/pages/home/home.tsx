@@ -55,8 +55,7 @@ const Home = (): JSX.Element => {
             <CardSection
                 id="projects"
                 title="Projects"
-                description="These are some of the personal projects I have worked
-                        on"
+                description="These are some of the personal projects I have worked on"
             >
                 <div className="text-left">
                     <section className="mt-16 text-center">

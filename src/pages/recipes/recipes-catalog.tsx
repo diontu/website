@@ -1,6 +1,7 @@
+// TODO: make Recipes Catalog more modularized. Ensure that I could use it for both my latest recipes and my favourite recipes
 const RecipesCatalog = (): JSX.Element => {
     return (
-        <section className="mb-32">
+        <section>
             <div className="grid gap-6 lg:grid-cols-3">
                 <div
                     className="hover:scale-105 duration-500 relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
