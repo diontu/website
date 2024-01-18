@@ -1,4 +1,5 @@
 // TODO: make Recipes Catalog more modularized. Ensure that I could use it for both my latest recipes and my favourite recipes
+// TODO: include pagination component in here as well or maybe in parent component?
 const RecipesCatalog = (): JSX.Element => {
     return (
         <section>
