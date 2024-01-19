@@ -40,8 +40,8 @@ const Home = (): JSX.Element => {
                         frontend, but would like to improve in all areas
                         (backend, UI/UX, and product decisions based on
                         metrics). If you have an interesting article/project you
-                        want to share, please share it with me through X (this
-                        is still known as Twitter to me) @DionTu3.
+                        want to share, please share it with me on Twitter
+                        @DionTu3.
                     </p>
                 </div>
             </CardSection>

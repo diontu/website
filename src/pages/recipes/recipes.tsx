@@ -21,7 +21,7 @@ const Recipes = (): JSX.Element => {
                         My favourite cuisine to eat/cook is Vietnamese, but
                         would love to try recipes in other cuisines too! If you
                         have a recipe that you love and would like to share,
-                        please don't hesitate to share it with me{' '}
+                        please don't hesitate to share it with me on Twitter{' '}
                         <a
                             className="underline hover:no-underline"
                             href="https://twitter.com/DionTu3"

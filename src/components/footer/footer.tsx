@@ -43,6 +43,15 @@ const Footer = (props: FooterProps): JSX.Element => {
                                 YouTube
                             </a>
                         </p>
+                        <p className="mb-4">
+                            <a
+                                target="_blank"
+                                href="https://twitter.com/DionTu3"
+                                className="text-neutral-600 dark:text-neutral-200"
+                            >
+                                Twitter
+                            </a>
+                        </p>
                     </div>
                     <div className="">
                         <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
