@@ -12,11 +12,12 @@ const Header = (props: HeaderProps): JSX.Element => {
     const navigate = useNavigate()
     return (
         <div className="flex z-10 sticky top-0 w-full py-3 bg-white border-b-2 border-slate-150">
-            <img
+            {/* TODO: replace with my own logo or initials */}
+            {/* <img
                 src={reactLogo}
                 className="h-12 w-12 cursor-pointer"
                 onClick={() => navigate('/')}
-            />
+            /> */}
             <Navigation nav={props.nav} />
         </div>
     )
