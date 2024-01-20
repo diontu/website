@@ -13,7 +13,7 @@ const Recipes = (): JSX.Element => {
                     <p className="my-4">
                         Welcome to my world of recipes! I'm a big fan of eating
                         food, but I also like to cook it as well. The thing
-                        is... I tend to forgot a lot of the recipes I've cooked
+                        is... I tend to forget a lot of the recipes I've cooked
                         so that's why I made this page. This page contains my
                         latest recipes and the favourite recipes I've cooked.
                     </p>
