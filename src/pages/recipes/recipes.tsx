@@ -32,10 +32,7 @@ const Recipes = (): JSX.Element => {
                         here!
                     </p>
                 </div>
-                <CardSection title="Latest Recipes">
-                    <RecipesCatalog />
-                </CardSection>
-                <CardSection title="Top 3 Favourite Recipes">
+                <CardSection title="Recipes">
                     <RecipesCatalog />
                 </CardSection>
             </div>
