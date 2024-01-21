@@ -40,6 +40,9 @@
         --ring: 222.2 84% 4.9%;
 
         --radius: 0.5rem;
+
+        /* colors */
+        --primary-color: #f7d33e;
     }
 
     .dark {

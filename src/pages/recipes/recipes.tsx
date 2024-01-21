@@ -1,6 +1,6 @@
+import Input from '@/components/input/input'
 import BlankPage from '@/page-templates/blank-page/blank-page'
 import RecipesCatalog from '@/pages/recipes/recipes-catalog'
-import CardSection from '@/pages/sections/card-section'
 
 const Recipes = (): JSX.Element => {
     return (
@@ -14,8 +14,8 @@ const Recipes = (): JSX.Element => {
                         Welcome to my world of recipes! I'm a big fan of eating
                         food, but I also like to cook it as well. The thing
                         is... I tend to forget a lot of the recipes I've cooked
-                        so that's why I made this page. This page contains my
-                        latest recipes and the favourite recipes I've cooked.
+                        so that's why I made this page. This page all of the
+                        recipes I've cooked.
                     </p>
                     <p className="my-4">
                         My favourite cuisine to eat/cook is Vietnamese, but
@@ -32,9 +32,11 @@ const Recipes = (): JSX.Element => {
                         here!
                     </p>
                 </div>
-                <CardSection title="Recipes">
+
+                <div className="my-12">
+                    <Input placeholder="Search recipe here..." />
                     <RecipesCatalog />
-                </CardSection>
+                </div>
             </div>
         </BlankPage>
     )
