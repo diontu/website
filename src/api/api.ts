@@ -1,7 +1,34 @@
 import axios from 'axios'
 
-const API_DOMAIN = 'http://localhost:8080'
+type Response<T> = {
+    data: {
+        content: T
+        metadata: any
+    }
+    message: string
+    status: string
+}
 
-export const getRecipes = async (): Promise<void> => {
-    return axios.get(`${API_DOMAIN}/recipes`)
+type ContentResponse<S> = {
+    fields: S
+    metadata: any
+    sys: {
+        createdAt: string
+        id: string
+        locale: string
+        type: string
+        updatedAt: string
+    }
+}[]
+
+type RecipeSchema = {
+    cookingSteps: any
+    ingredients: string[]
+    title: string
+}
+
+export type RecipeResponse = ContentResponse<RecipeSchema>
+
+export const getRecipes = async (): Promise<Response<RecipeResponse>> => {
+    return axios.get(`${import.meta.env.VITE_BE_HOST}/recipes`)
 }

@@ -1,8 +1,22 @@
+import { useEffect, useState } from 'react'
 import Input from '@/components/input/input'
 import BlankPage from '@/page-templates/blank-page/blank-page'
 import RecipesCatalog from '@/pages/recipes/recipes-catalog'
+import { getRecipes } from '@/api/api'
+
+// types
+import type { RecipeResponse } from '@/api/api'
 
 const Recipes = (): JSX.Element => {
+    const [recipes, setRecipes] = useState<RecipeResponse>([])
+    useEffect(() => {
+        const retrieveRecipes = async () => {
+            const response = await getRecipes()
+            setRecipes(response.data.content)
+        }
+        retrieveRecipes()
+    }, [])
+
     return (
         <BlankPage>
             <div className="container my-24 mx-auto md:px-6">
