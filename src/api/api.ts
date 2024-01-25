@@ -25,10 +25,29 @@ type RecipeSchema = {
     cookingSteps: any
     ingredients: string[]
     title: string
+    thumbnail: {
+        fields: {
+            description: string
+            title: string
+            file: {
+                details: {
+                    size: number
+                    image: {
+                        width: number
+                        height: number
+                    }
+                }
+                contentType: string
+                fileName: string
+                url: string
+            }
+        }
+    }
 }
 
 export type RecipeResponse = ContentResponse<RecipeSchema>
 
 export const getRecipes = async (): Promise<Response<RecipeResponse>> => {
-    return axios.get(`${import.meta.env.VITE_BE_HOST}/recipes`)
+    const response = await axios.get(`${import.meta.env.VITE_BE_HOST}/recipes`)
+    return response.data
 }

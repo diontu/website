@@ -49,7 +49,7 @@ const Recipes = (): JSX.Element => {
 
                 <div className="my-12">
                     <Input placeholder="Search recipe here..." />
-                    <RecipesCatalog />
+                    <RecipesCatalog recipes={recipes} />
                 </div>
             </div>
         </BlankPage>
