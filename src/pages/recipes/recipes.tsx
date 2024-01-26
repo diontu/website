@@ -8,7 +8,8 @@ import { getRecipes } from '@/api/api'
 import type { RecipeResponse } from '@/api/api'
 
 const Recipes = (): JSX.Element => {
-    const [recipes, setRecipes] = useState<RecipeResponse>([])
+    const [recipes, setRecipes] = useState<RecipeResponse | undefined>([])
+
     useEffect(() => {
         const retrieveRecipes = async () => {
             const response = await getRecipes()
@@ -16,6 +17,17 @@ const Recipes = (): JSX.Element => {
         }
         retrieveRecipes()
     }, [])
+
+    const renderRecipes = (): JSX.Element => {
+        if (recipes === undefined)
+            // TODO: create some animation that is entertaining to keep the pereson on the page.
+            return (
+                <div>
+                    The recipes are on their way back from the grocery store...
+                </div>
+            )
+        return <RecipesCatalog recipes={recipes} />
+    }
 
     return (
         <BlankPage>
@@ -49,7 +61,7 @@ const Recipes = (): JSX.Element => {
 
                 <div className="my-12">
                     <Input placeholder="Search recipe here..." />
-                    <RecipesCatalog recipes={recipes} />
+                    {renderRecipes()}
                 </div>
             </div>
         </BlankPage>

@@ -1,7 +1,6 @@
 import Footer from '@/components/footer/footer'
 import Header from '@/components/header/header'
 import { NavMenu } from '@/components/header/navigation-menu/navigation-menu'
-import { Socials } from '@/components/footer/footer-socials'
 
 type BlankPageProps = {
     children: React.ReactNode
