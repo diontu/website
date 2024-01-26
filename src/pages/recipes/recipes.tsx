@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Input from '@/components/input/input'
 import BlankPage from '@/page-templates/blank-page/blank-page'
 import RecipesCatalog from '@/pages/recipes/recipes-catalog'
@@ -6,9 +6,12 @@ import { getRecipes } from '@/api/api'
 
 // types
 import type { RecipeResponse } from '@/api/api'
+import { debounce } from '@/utils/utils'
 
 const Recipes = (): JSX.Element => {
-    const [recipes, setRecipes] = useState<RecipeResponse | undefined>([])
+    const [searchWord, setSearchWord] = useState('')
+    const [recipes, setRecipes] = useState<RecipeResponse>([])
+    const debouncedSearchWord = useRef(debounce(setSearchWord))
 
     useEffect(() => {
         const retrieveRecipes = async () => {
@@ -18,15 +21,30 @@ const Recipes = (): JSX.Element => {
         retrieveRecipes()
     }, [])
 
+    const handleSearchOnChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        // TODO: set debouncing
+        const searchValue = event.target.value
+        debouncedSearchWord.current(searchValue.toLowerCase())
+    }
+
     const renderRecipes = (): JSX.Element => {
-        if (recipes === undefined)
+        if (recipes === undefined) {
             // TODO: create some animation that is entertaining to keep the pereson on the page.
             return (
                 <div>
                     The recipes are on their way back from the grocery store...
                 </div>
             )
-        return <RecipesCatalog recipes={recipes} />
+        }
+        let recipesToShow = recipes
+        if (searchWord !== '') {
+            recipesToShow = recipes.filter((recipe) =>
+                recipe.fields.title.toLowerCase().includes(searchWord)
+            )
+        }
+        return <RecipesCatalog recipes={recipesToShow} />
     }
 
     return (
@@ -60,7 +78,10 @@ const Recipes = (): JSX.Element => {
                 </div>
 
                 <div className="my-12">
-                    <Input placeholder="Search recipe here..." />
+                    <Input
+                        placeholder="Search recipe here..."
+                        onChange={handleSearchOnChange}
+                    />
                     {renderRecipes()}
                 </div>
             </div>
