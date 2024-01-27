@@ -24,14 +24,13 @@ const Recipes = (): JSX.Element => {
     const handleSearchOnChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
-        // TODO: set debouncing
         const searchValue = event.target.value
         debouncedSearchWord.current(searchValue.toLowerCase())
     }
 
     const renderRecipes = (): JSX.Element => {
         if (recipes === undefined) {
-            // TODO: create some animation that is entertaining to keep the pereson on the page.
+            // TODO: create some animation that is entertaining to keep the person on the page during the cold start.
             return (
                 <div>
                     The recipes are on their way back from the grocery store...
