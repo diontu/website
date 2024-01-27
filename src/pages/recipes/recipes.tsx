@@ -49,7 +49,7 @@ const Recipes = (): JSX.Element => {
 
     return (
         <BlankPage>
-            <div className="container my-24 mx-auto md:px-6">
+            <div className="container my-24">
                 <h2 className="mb-12 text-center text-3xl font-bold">
                     Recipes
                 </h2>
@@ -78,10 +78,12 @@ const Recipes = (): JSX.Element => {
                 </div>
 
                 <div className="my-12">
-                    <Input
-                        placeholder="Search recipe here..."
-                        onChange={handleSearchOnChange}
-                    />
+                    <div className="mb-8">
+                        <Input
+                            placeholder="Search recipe here..."
+                            onChange={handleSearchOnChange}
+                        />
+                    </div>
                     {renderRecipes()}
                 </div>
             </div>

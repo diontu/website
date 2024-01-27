@@ -41,7 +41,7 @@ const BlankPage = (props: BlankPageProps) => {
     return (
         <>
             <Header nav={nav} />
-            <main>{props.children}</main>
+            <main className="md:px-12">{props.children}</main>
             <Footer />
         </>
     )
