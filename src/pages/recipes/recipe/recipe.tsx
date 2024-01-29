@@ -6,9 +6,10 @@ import { getRecipe } from '@/api/api'
 
 // TODO: make the story an accordion, everything else should be fully visible
 const Recipe = (): JSX.Element => {
+    const { recipeId } = useParams()
+
     useEffect(() => {
         const retrieveRecipe = async () => {
-            const { recipeId } = useParams()
             if (recipeId) {
                 await getRecipe(recipeId)
             }
