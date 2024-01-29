@@ -51,3 +51,10 @@ export const getRecipes = async (): Promise<Response<RecipeResponse>> => {
     const response = await axios.get(`${import.meta.env.VITE_BE_HOST}/recipes`)
     return response.data
 }
+
+export const getRecipe = async (entryId: string): Promise<any> => {
+    const response = await axios.get(
+        `${import.meta.env.VITE_BE_HOST}/recipes/${entryId}`
+    )
+    return response.data
+}

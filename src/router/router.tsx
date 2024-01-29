@@ -22,7 +22,7 @@ const routerPaths = [
         element: <Recipes />,
     },
     {
-        path: '/recipes/:id',
+        path: '/recipes/:recipeId',
         element: <Recipe />,
     },
 ]
