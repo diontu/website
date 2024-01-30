@@ -51,13 +51,16 @@ export type RecipesResponse = Response<ContentResponseArray<RecipeSchema>>
 
 export type RecipeResponse = Response<ContentResponse<RecipeSchema>>
 
-export const getRecipes = async (): Promise<RecipesResponse> => {
-    const response = await axios.get(`${import.meta.env.VITE_BE_HOST}/recipes`)
+export const getRecipes = async (limit?: number): Promise<RecipesResponse> => {
+    const response = await axios.post(
+        `${import.meta.env.VITE_BE_HOST}/recipes`,
+        { limit: limit }
+    )
     return response.data
 }
 
 export const getRecipe = async (entryId: string): Promise<RecipeResponse> => {
-    const response = await axios.get(
+    const response = await axios.post(
         `${import.meta.env.VITE_BE_HOST}/recipes/${entryId}`
     )
     return response.data
