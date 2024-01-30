@@ -32,7 +32,7 @@ const Recipe = (): JSX.Element => {
         return {
             renderNode: {
                 [BLOCKS.PARAGRAPH]: (
-                    node: unknown,
+                    _node: unknown,
                     children: React.ReactNode
                 ) => <p className="text-left">{children}</p>,
             },
