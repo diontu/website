@@ -22,9 +22,13 @@ const routerPaths = [
         element: <Recipes />,
     },
     {
-        path: '/recipes/:recipeId',
+        path: '/recipes/:slug',
         element: <Recipe />,
     },
 ]
+
+export const getSlugPath = (title: string): string => {
+    return title.toLowerCase().replace(' ', '-')
+}
 
 export default routerPaths

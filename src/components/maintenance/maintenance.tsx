@@ -7,7 +7,7 @@ const Maintenance = (): JSX.Element => {
             </p>
             <div className="flex justify-center">
                 <img
-                    src="/public/maintenance-panel.gif"
+                    src="/maintenance-panel.gif"
                     alt="maintenance gif"
                     className="md:w-7/12 md:h-[400px] object-cover"
                 />

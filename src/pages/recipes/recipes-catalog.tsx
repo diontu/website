@@ -1,4 +1,5 @@
 import { RecipeResponse } from '@/api/api'
+import { getSlugPath } from '@/router/router'
 import { parseContentfulImageUrl } from '@/utils/utils'
 import moment from 'moment'
 
@@ -34,7 +35,9 @@ const RecipesCatalog = (props: Props): JSX.Element => {
                                 src={imageUrl}
                                 className="h-full  w-full align-middle transition duration-300 ease-linear object-cover"
                             />
-                            <a href={`/recipes/${recipe.sys.id}`}>
+                            <a
+                                href={`/recipes/${getSlugPath(recipe.fields.title)}`}
+                            >
                                 <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                                     <div className="flex h-full items-end justify-start">
                                         <div className="m-6 text-white text-left">
