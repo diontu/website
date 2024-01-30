@@ -27,6 +27,7 @@ export type RecipeSchema = {
     cookingSteps: any
     ingredients: string[]
     title: string
+    description: string
     thumbnail: {
         fields: {
             description: string

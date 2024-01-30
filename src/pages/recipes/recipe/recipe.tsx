@@ -42,7 +42,7 @@ const Recipe = (): JSX.Element => {
     return (
         <BlankPage>
             {recipe === undefined ? (
-                <>There is no recipe...</>
+                <>There is no recipe for that...</>
             ) : (
                 <div className="text-left container my-24">
                     <h2 className="mb-12 text-center text-3xl font-bold">
@@ -57,6 +57,7 @@ const Recipe = (): JSX.Element => {
                             className="h-[400px] w-[400px]"
                         />
                     </div>
+                    {recipe.fields.description}
                     {/* TODO: create checkbox for ingredients? with cache that expires every 24 hours? */}
                     {recipe.fields.ingredients}
                     {/* cooking instructions */}

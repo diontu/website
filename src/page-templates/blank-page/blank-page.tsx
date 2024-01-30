@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react'
 import Footer from '@/components/footer/footer'
 import Header from '@/components/header/header'
 import { NavMenu } from '@/components/header/navigation-menu/navigation-menu'
+import { ContentResponseArray, RecipeSchema, getRecipes } from '@/api/api'
+import { getSlugPath } from '@/router/router'
 
 type BlankPageProps = {
     children: React.ReactNode
@@ -10,7 +13,6 @@ const nav: NavMenu = [
     { title: 'About', href: '/#about' },
     { title: 'Experience', href: '/#experience' },
     { title: 'Projects', href: '/#projects' },
-    // TODO: make the recipes dynamic
     {
         title: 'Recipes',
         main: {
@@ -19,25 +21,31 @@ const nav: NavMenu = [
                 "See a catalog of the recipes of the foods I've cooked",
             href: '/recipes',
         },
-        menu: [
-            {
-                title: 'Recipe 1',
-                href: '/recipes/recipe-1',
-                description:
-                    'A delicious golden yellow crepe with a hint of Matcha!',
-            },
-            {
-                title: 'Recipe 2',
-                href: '/recipes/recipe-2',
-                description:
-                    'A delicious golden yellow crepe with a hint of Matcha!',
-            },
-        ],
-        // TODO: add another field that creates a "more recipes..." at the bottom that you could click
+        menu: [],
     },
 ]
 
 const BlankPage = (props: BlankPageProps) => {
+    const [recipes, setRecipes] = useState<ContentResponseArray<RecipeSchema>>()
+    useEffect(() => {
+        const retrieveRecipes = async (): Promise<void> => {
+            const response = await getRecipes(2)
+            response && setRecipes(response.data.content)
+        }
+        retrieveRecipes()
+    }, [])
+    useEffect(() => {
+        const recipesNav = nav.find(
+            (menu) => menu.title.toLowerCase() === 'recipes'
+        )
+        if (recipesNav === undefined || recipes === undefined) return
+        recipesNav.menu = recipes.map((recipe) => ({
+            title: recipe.fields.title,
+            href: `/recipes/${getSlugPath(recipe.fields.title)}`,
+            description: recipe.fields.description ?? '',
+        }))
+    }, [recipes])
+
     return (
         <>
             <Header nav={nav} />
