@@ -9,23 +9,23 @@ type BlankPageProps = {
     children: React.ReactNode
 }
 
-const nav: NavMenu = [
-    { title: 'About', href: '/#about' },
-    { title: 'Experience', href: '/#experience' },
-    { title: 'Projects', href: '/#projects' },
-    {
-        title: 'Recipes',
-        main: {
-            title: 'Recipes Blog',
-            description:
-                "See a catalog of the recipes of the foods I've cooked",
-            href: '/recipes',
-        },
-        menu: [],
-    },
-]
-
 const BlankPage = (props: BlankPageProps) => {
+    const [nav, setNav] = useState<NavMenu>([
+        { title: 'About', href: '/#about' },
+        { title: 'Experience', href: '/#experience' },
+        { title: 'Projects', href: '/#projects' },
+        {
+            title: 'Recipes',
+            main: {
+                title: 'Recipes Blog',
+                description:
+                    "See a catalog of the recipes of the foods I've cooked",
+                href: '/recipes',
+            },
+            menu: [],
+        },
+    ])
+
     const [recipes, setRecipes] = useState<ContentResponseArray<RecipeSchema>>()
     useEffect(() => {
         const retrieveRecipes = async (): Promise<void> => {
@@ -44,6 +44,7 @@ const BlankPage = (props: BlankPageProps) => {
             href: `/recipes/${getSlugPath(recipe.fields.title)}`,
             description: recipe.fields.description ?? '',
         }))
+        setNav([...nav])
     }, [recipes])
 
     return (
