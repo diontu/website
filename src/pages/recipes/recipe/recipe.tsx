@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState } from 'react'
+import { useLoaderData } from 'react-router-dom'
 import BlankPage from '@/page-templates/blank-page/blank-page'
-import { ContentResponse, RecipeSchema, getRecipe, getRecipes } from '@/api/api'
-import { getSlugPath } from '@/router/router'
+import { ContentResponse, RecipeSchema } from '@/api/api'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { parseContentfulImageUrl } from '@/utils/utils'
@@ -10,22 +9,8 @@ import { parseContentfulImageUrl } from '@/utils/utils'
 // TODO: make the story an accordion, everything else should be fully visible
 // TODO: add columns to make this look nicer
 const Recipe = (): JSX.Element => {
-    const { slug } = useParams()
-    const [recipe, setRecipe] = useState<ContentResponse<RecipeSchema>>()
-
-    useEffect(() => {
-        //TODO: maybe i can put this on the router so that we don't get the flicker of the render
-        const retrieveRecipe = async () => {
-            const response = await getRecipes()
-            const foundRecipe = response.data.content.find((recipe) => {
-                return slug === getSlugPath(recipe.fields.title)
-            })
-            if (foundRecipe === undefined) return
-            const recipe = await getRecipe(foundRecipe.sys.id)
-            recipe && setRecipe(recipe.data.content)
-        }
-        retrieveRecipe()
-    }, [])
+    const loadedRecipe = useLoaderData() as ContentResponse<RecipeSchema>
+    const [recipe] = useState<ContentResponse<RecipeSchema>>(loadedRecipe)
 
     // TODO: should probably refactor this out to a contentful specific folder
     const getRenderOptions = () => {
