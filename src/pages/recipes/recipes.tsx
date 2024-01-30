@@ -5,12 +5,14 @@ import RecipesCatalog from '@/pages/recipes/recipes-catalog'
 import { getRecipes } from '@/api/api'
 
 // types
-import type { RecipeResponse } from '@/api/api'
+import type { ContentResponseArray, RecipeSchema } from '@/api/api'
 import { debounce } from '@/utils/utils'
 
 const Recipes = (): JSX.Element => {
     const [searchWord, setSearchWord] = useState('')
-    const [recipes, setRecipes] = useState<RecipeResponse>([])
+    const [recipes, setRecipes] = useState<ContentResponseArray<RecipeSchema>>(
+        []
+    )
     const debouncedSearchWord = useRef(debounce(setSearchWord))
 
     useEffect(() => {

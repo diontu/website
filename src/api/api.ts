@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-type Response<T> = {
+export type Response<T> = {
     data: {
         content: T
         metadata: any
@@ -9,7 +9,7 @@ type Response<T> = {
     status: string
 }
 
-type ContentResponse<S> = {
+export type ContentResponse<S> = {
     fields: S
     metadata: any
     sys: {
@@ -19,9 +19,11 @@ type ContentResponse<S> = {
         type: string
         updatedAt: string
     }
-}[]
+}
 
-type RecipeSchema = {
+export type ContentResponseArray<S> = ContentResponse<S>[]
+
+export type RecipeSchema = {
     cookingSteps: any
     ingredients: string[]
     title: string
@@ -45,14 +47,16 @@ type RecipeSchema = {
     }
 }
 
-export type RecipeResponse = ContentResponse<RecipeSchema>
+export type RecipesResponse = Response<ContentResponseArray<RecipeSchema>>
 
-export const getRecipes = async (): Promise<Response<RecipeResponse>> => {
+export type RecipeResponse = Response<ContentResponse<RecipeSchema>>
+
+export const getRecipes = async (): Promise<RecipesResponse> => {
     const response = await axios.get(`${import.meta.env.VITE_BE_HOST}/recipes`)
     return response.data
 }
 
-export const getRecipe = async (entryId: string): Promise<any> => {
+export const getRecipe = async (entryId: string): Promise<RecipeResponse> => {
     const response = await axios.get(
         `${import.meta.env.VITE_BE_HOST}/recipes/${entryId}`
     )

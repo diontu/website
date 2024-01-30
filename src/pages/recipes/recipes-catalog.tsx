@@ -1,10 +1,10 @@
-import { RecipeResponse } from '@/api/api'
+import { ContentResponseArray, RecipeSchema } from '@/api/api'
 import { getSlugPath } from '@/router/router'
 import { parseContentfulImageUrl } from '@/utils/utils'
 import moment from 'moment'
 
 type Props = {
-    recipes: RecipeResponse
+    recipes: ContentResponseArray<RecipeSchema>
 }
 
 const RecipesCatalog = (props: Props): JSX.Element => {

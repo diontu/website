@@ -28,9 +28,9 @@
             "utils/*": ["./src/utils/*"],
             "router/*": ["./src/router/*"],
             "pages/*": ["./src/pages/*"],
-            "page-templates/*": ["./src/page-templates/*"]
-        }
+            "page-templates/*": ["./src/page-templates/*"],
+        },
     },
     "include": ["src"],
-    "references": [{ "path": "./tsconfig.node.json" }]
+    "references": [{ "path": "./tsconfig.node.json" }],
 }
