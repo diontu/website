@@ -78,7 +78,7 @@ const Navigation = (props: NavProps): JSX.Element => {
                 {props.nav.map((item) => {
                     if (!hasContextMenu(item)) {
                         return (
-                            <NavigationMenuItem>
+                            <NavigationMenuItem key={item.title}>
                                 <NavigationMenuLink
                                     href={item.href}
                                     className={navigationMenuTriggerStyle()}
@@ -89,7 +89,7 @@ const Navigation = (props: NavProps): JSX.Element => {
                         )
                     }
                     return (
-                        <NavigationMenuItem>
+                        <NavigationMenuItem key={item.title}>
                             <NavigationMenuTrigger>
                                 {item.title}
                             </NavigationMenuTrigger>
