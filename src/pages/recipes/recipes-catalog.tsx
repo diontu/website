@@ -27,6 +27,7 @@ const RecipesCatalog = (props: Props): JSX.Element => {
                     )
                     return (
                         <div
+                            key={recipe.fields.title}
                             className="hover:scale-105 duration-500 relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 md:h-[220px]"
                             data-te-ripple-init
                             data-te-ripple-color="light"

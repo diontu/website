@@ -6,6 +6,11 @@ import '@/styles/globals.css'
 
 const router = createBrowserRouter(routerPaths)
 
+// stop memory leak
+window.addEventListener('unload', function () {
+    document.documentElement.innerHTML = ''
+})
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <RouterProvider router={router} />

@@ -50,7 +50,7 @@ const BlankPage = (props: BlankPageProps) => {
     return (
         <>
             <Header nav={nav} />
-            <main className="md:px-12">{props.children}</main>
+            <main className="px-4 md:px-12">{props.children}</main>
             <Footer />
         </>
     )
