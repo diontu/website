@@ -9,7 +9,6 @@ import {
     navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { cn } from '../../utils'
-import isMobile from '@/components/hooks/isMobile'
 
 type NavProps = {
     nav: NavMenu
@@ -40,7 +39,7 @@ export type NavMenuContent = {
     description: string
 }[]
 
-const hasContextMenu = (nav: NavMulti | NavSingle): nav is NavMulti => {
+export const hasContextMenu = (nav: NavMulti | NavSingle): nav is NavMulti => {
     return nav.menu !== undefined
 }
 
@@ -73,25 +72,7 @@ const ListItem = React.forwardRef<
 ListItem.displayName = 'ListItem'
 
 const Navigation = (props: NavProps): JSX.Element => {
-    const isWindowMobile = isMobile()
-    const onBurgerClick = (): void => {
-        // to something
-    }
-    const renderMobileNav = (): JSX.Element => {
-        return (
-            <div className="w-full flex justify-end">
-                <img
-                    src="/burger-menu.svg"
-                    alt="hamburger menu"
-                    onClick={onBurgerClick}
-                    className="cursor-pointer w-[48px] h-[48px]"
-                />
-            </div>
-        )
-    }
-    return isWindowMobile ? (
-        renderMobileNav()
-    ) : (
+    return (
         <NavigationMenu className="justify-end text-lg">
             <NavigationMenuList>
                 {props.nav.map((item) => {
