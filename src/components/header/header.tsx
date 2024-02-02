@@ -3,7 +3,7 @@ import Navigation, {
     hasContextMenu,
 } from '@/components/header/navigation-menu/navigation-menu'
 import isMobile from '@/hooks/isMobile'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 type HeaderProps = {
     nav: NavMenu
@@ -12,20 +12,6 @@ type HeaderProps = {
 const Header = (props: HeaderProps): JSX.Element => {
     const navRef = useRef<HTMLDivElement>(null)
     const isWindowMobile = isMobile()
-
-    useEffect(() => {
-        const handleHeaderListener = (event: Event) => {
-            const target = event.target as HTMLElement
-            if (navRef.current && target && !navRef.current.contains(target)) {
-                navRef.current?.classList.remove('h-0')
-            }
-        }
-
-        document.addEventListener('mousedown', handleHeaderListener)
-        return () => {
-            document.removeEventListener('mousedown', handleHeaderListener)
-        }
-    }, [])
 
     const onBurgerClick = (): void => {
         if (!navRef.current) return
@@ -50,14 +36,18 @@ const Header = (props: HeaderProps): JSX.Element => {
             <div
                 id="mobile-nav"
                 ref={navRef}
-                className="transition-height h-0 flex flex-col w-full"
+                className="h-0 flex flex-col w-full overflow-hidden"
             >
                 {props.nav.map((navMenu) => (
-                    <div className="flex justify-start w-full my-12">
+                    <div className="flex justify-start w-full my-1 py-1">
                         {hasContextMenu(navMenu) ? (
-                            <a href={navMenu.main.href}>{navMenu.title}</a>
+                            <a href={navMenu.main.href} className="w-full">
+                                {navMenu.title}
+                            </a>
                         ) : (
-                            <a href={navMenu.href}>{navMenu.title}</a>
+                            <a href={navMenu.href} className="w-full">
+                                {navMenu.title}
+                            </a>
                         )}
                     </div>
                 ))}
