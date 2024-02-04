@@ -10,7 +10,6 @@ import Card from '@/components/card/card'
 import { Checkbox } from '@/components/ui/checkbox'
 
 // TODO: make the story an accordion, everything else should be fully visible
-// TODO: add columns to make this look nicer
 const Recipe = (): JSX.Element => {
     const loadedRecipe = useLoaderData() as ContentResponse<RecipeSchema>
     const [recipe] = useState<ContentResponse<RecipeSchema>>(loadedRecipe)
@@ -38,7 +37,10 @@ const Recipe = (): JSX.Element => {
                     <div className="my-6">
                         <Card title="Ingredients">
                             {recipe.fields.ingredients.map((ingredient) => (
-                                <div className="flex align-center">
+                                <div
+                                    className="flex align-center"
+                                    key={ingredient}
+                                >
                                     <Checkbox id={ingredient} />
                                     <label
                                         htmlFor={ingredient}
