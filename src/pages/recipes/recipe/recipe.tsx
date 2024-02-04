@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import BlankPage from '@/page-templates/blank-page/blank-page'
 import { ContentResponse, RecipeSchema } from '@/api/api'
-import { BLOCKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { parseContentfulImageUrl } from '@/utils/utils'
+import {
+    parseContentfulImageUrl,
+    renderContentfulDocument,
+} from '@/utils/utils'
 import Card from '@/components/card/card'
 import { Checkbox } from '@/components/ui/checkbox'
 
@@ -13,18 +14,6 @@ import { Checkbox } from '@/components/ui/checkbox'
 const Recipe = (): JSX.Element => {
     const loadedRecipe = useLoaderData() as ContentResponse<RecipeSchema>
     const [recipe] = useState<ContentResponse<RecipeSchema>>(loadedRecipe)
-
-    // TODO: should probably refactor this out to a contentful specific folder
-    const getRenderOptions = () => {
-        return {
-            renderNode: {
-                [BLOCKS.PARAGRAPH]: (
-                    _node: unknown,
-                    children: React.ReactNode
-                ) => <p className="text-left">{children}</p>,
-            },
-        }
-    }
 
     return (
         <BlankPage>
@@ -64,9 +53,8 @@ const Recipe = (): JSX.Element => {
                     {/* cooking instructions */}
                     <div className="my-6">
                         <Card title="Cooking Steps">
-                            {documentToReactComponents(
-                                recipe.fields.cookingSteps,
-                                getRenderOptions()
+                            {renderContentfulDocument(
+                                recipe.fields.cookingSteps
                             )}
                         </Card>
                     </div>
