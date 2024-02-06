@@ -35,6 +35,7 @@ const routerPaths: RouteObject[] = [
             const recipe = await getRecipe(foundRecipe.sys.id)
             return recipe.data.content
         },
+        errorElement: <Error404 />,
     },
 ]
 
